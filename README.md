@@ -33,9 +33,9 @@ Installare:
 docker ps
 
 Devono essere attivi:
-infra-neo4j-1
-infra-mongo-1
-infra-mongo-express-1
+- infra-neo4j-1
+- infra-mongo-1
+- infra-mongo-express-1
 
 # 📥 Import Dataset
 Mettere tutti i file dentro: infra/neo4j_import/
