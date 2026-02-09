@@ -85,7 +85,8 @@ CREATE (:Person {
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///person_knows_person_0_0.csv'
-AS row FIELDTERMINATOR '|'
+AS row
+FIELDTERMINATOR '|'
 MATCH (p1:Person {id: toInteger(row.`Person.id`)})
 MATCH (p2:Person {id: toInteger(row.`Person.id.1`)})
 MERGE (p1)-[:KNOWS]->(p2);
