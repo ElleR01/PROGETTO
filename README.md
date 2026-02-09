@@ -67,7 +67,7 @@ FOR (p:Person) REQUIRE p.id IS UNIQUE;
 CREATE CONSTRAINT place_id IF NOT EXISTS
 FOR (pl:Place) REQUIRE pl.id IS UNIQUE;
 
-```2️⃣ Import Person```
+```2️⃣ Import Person
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///person_0_0.csv'
@@ -80,18 +80,18 @@ CREATE (:Person {
   birthday: row.birthday,
   creationDate: row.creationDate
 });
-
-```3️⃣ Import KNOWS```
+```
+```3️⃣ Import KNOWS
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///person_knows_person_0_0.csv'
 AS row
 FIELDTERMINATOR '|'
-MATCH (p1:Person {id: toInteger(row.`Person.id`)})
-MATCH (p2:Person {id: toInteger(row.`Person.id.1`)})
+MATCH (p1:Person {id: toInteger(row.`Person1.id`)})
+MATCH (p2:Person {id: toInteger(row.`Person2.id`)})
 MERGE (p1)-[:KNOWS]->(p2);
-
-```4️⃣ Import Place``` 
+```
+```4️⃣ Import Place 
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///place_0_0.csv'
@@ -101,8 +101,8 @@ CREATE (:Place {
   name: row.name,
   type: row.type
 });
-
-```5️⃣ Person → Place```
+```
+```5️⃣ Person → Place
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///person_isLocatedIn_place_0_0.csv'
@@ -110,7 +110,7 @@ AS row FIELDTERMINATOR '|'
 MATCH (p:Person {id: toInteger(row.`Person.id`)})
 MATCH (pl:Place {id: toInteger(row.`Place.id`)})
 MERGE (p)-[:IS_LOCATED_IN]->(pl);
-
+```
 # 🔵 Import MongoDB
 
 ```Eseguire nel terminale:```
