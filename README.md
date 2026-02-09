@@ -119,7 +119,7 @@ MERGE (p)-[:IS_LOCATED_IN]->(pl);
 # 🔵 Import MongoDB
 
 ```Eseguire nel terminale:```
-
+```
 docker exec -it infra-mongo-1 mongoimport --db ldbc --collection posts --type csv --headerline --file /import/post_0_0.csv
 
 docker exec -it infra-mongo-1 mongoimport --db ldbc --collection comments --type csv --headerline --file /import/comment_0_0.csv
@@ -127,14 +127,15 @@ docker exec -it infra-mongo-1 mongoimport --db ldbc --collection comments --type
 docker exec -it infra-mongo-1 mongoimport --db ldbc --collection postCreators --type csv --headerline --file /import/post_hasCreator_person_0_0.csv
 
 docker exec -it infra-mongo-1 mongoimport --db ldbc --collection commentCreators --type csv --headerline --file /import/comment_hasCreator_person_0_0.csv
-
+```
 # 🔧 Indici (performance)
 
-```Aprire: 
+Aprire: 
+```
 docker exec -it infra-mongo-1 mongosh
 ```
-
-```Poi:
+Poi:
+```
 use ldbc
 db.postCreators.createIndex({"Person.id":1})
 db.commentCreators.createIndex({"Person.id":1})
@@ -151,16 +152,20 @@ node server.js
 
 # 🔍 Test API 
 ``` Query 1 — Feed amici (Lookup, Cross-DB)``` 
+``` 
 http://localhost:3000/api/q1/feed?userId=933&limit=20
-
+``` 
 ``` Query 2 — Profilo utente (Lookup, Neo4j)``` 
+``` 
 http://localhost:3000/api/q2/profile?userId=933
-
+``` 
 ``` Query 3 — Top influencer (Analitica, Neo4j)``` 
+``` 
 http://localhost:3000/api/q3/influencers?topN=10
-
+``` 
 ``` Query 4 — Top città per attività (Analitica, Cross-DB)``` 
+``` 
 http://localhost:3000/api/q4/city-activity?topN=10
-
+``` 
 # 📊 Sito demo
 http://localhost:3000
