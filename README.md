@@ -41,16 +41,16 @@ Devono essere attivi:
 Mettere tutti i file dentro: infra/neo4j_import/
 
 ```File per Neo4j (grafo)```
-person_0_0.csv
-person_knows_person_0_0.csv
-place_0_0.csv
-person_isLocatedIn_place_0_0.csv
+- person_0_0.csv
+- person_knows_person_0_0.csv
+- place_0_0.csv
+- person_isLocatedIn_place_0_0.csv
 
 ```File per MongoDB (documenti)```
-post_0_0.csv
-comment_0_0.csv
-post_hasCreator_person_0_0.csv
-comment_hasCreator_person_0_0.csv
+- post_0_0.csv
+- comment_0_0.csv
+- post_hasCreator_person_0_0.csv
+- comment_hasCreator_person_0_0.csv
 
 ```MongoDB non supporta | come separatore CSV.```
 Aprire questi file con VS Code e sostituire: |  →  ,
