@@ -24,8 +24,8 @@ Installare:
 # 🚀 Avvio infrastruttura
 
 ```bash```
-cd infra
-docker compose up -d
+- cd infra
+- docker compose up -d
 
 ---
 # Controllo
