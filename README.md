@@ -60,14 +60,16 @@ Aprire questi file con VS Code e sostituire: |  →  ,
 Aprire browser: http://localhost:7474
 Login: neo4j / password123
 
-``` 1️⃣ Constraints ```
+ 1️⃣ Constraints
+ ```
 CREATE CONSTRAINT person_id IF NOT EXISTS
 FOR (p:Person) REQUIRE p.id IS UNIQUE;
 
 CREATE CONSTRAINT place_id IF NOT EXISTS
 FOR (pl:Place) REQUIRE pl.id IS UNIQUE;
-
-```2️⃣ Import Person
+ ```
+2️⃣ Import Person
+```
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///person_0_0.csv'
@@ -81,7 +83,8 @@ CREATE (:Person {
   creationDate: row.creationDate
 });
 ```
-```3️⃣ Import KNOWS
+3️⃣ Import KNOWS
+```
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///person_knows_person_0_0.csv'
@@ -91,7 +94,8 @@ MATCH (p1:Person {id: toInteger(row.`Person1.id`)})
 MATCH (p2:Person {id: toInteger(row.`Person2.id`)})
 MERGE (p1)-[:KNOWS]->(p2);
 ```
-```4️⃣ Import Place 
+4️⃣ Import Place 
+```
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///place_0_0.csv'
@@ -102,7 +106,8 @@ CREATE (:Place {
   type: row.type
 });
 ```
-```5️⃣ Person → Place
+5️⃣ Person → Place
+```
 :auto
 LOAD CSV WITH HEADERS
 FROM 'file:///person_isLocatedIn_place_0_0.csv'
