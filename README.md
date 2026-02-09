@@ -138,9 +138,11 @@ db.comments.createIndex({id:1})
 ```
 
 # ▶️ Avvio Backend
+```
 cd backend
 npm install
 node server.js
+```
 
 # 🔍 Test API 
 ``` Query 1 — Feed amici (Lookup, Cross-DB)``` 
