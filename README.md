@@ -16,7 +16,7 @@ Implementazione di un sistema **multi-database** usando:
 
 Installare:
 
-- Docker + Docker Compose
+- Docker + Docker Compose (Docker desktop)
 - Node.js (npm)
 
 ---
