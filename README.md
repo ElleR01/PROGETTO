@@ -125,14 +125,17 @@ docker exec -it infra-mongo-1 mongoimport --db ldbc --collection commentCreators
 
 # 🔧 Indici (performance)
 
-```Aprire:``` 
+```Aprire: 
 docker exec -it infra-mongo-1 mongosh
-```Poi:```
+```
+
+```Poi:
 use ldbc
 db.postCreators.createIndex({"Person.id":1})
 db.commentCreators.createIndex({"Person.id":1})
 db.posts.createIndex({id:1})
 db.comments.createIndex({id:1})
+```
 
 # ▶️ Avvio Backend
 cd backend
