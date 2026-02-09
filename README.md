@@ -32,7 +32,7 @@ docker compose up -d
 ```bash```
 docker ps
 
-````Devono essere attivi:```
+Devono essere attivi:
 infra-neo4j-1
 infra-mongo-1
 infra-mongo-express-1
