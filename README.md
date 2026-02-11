@@ -31,8 +31,9 @@ docker compose up -d
 ---
 # Controllo
 ```bash```
+```
 docker ps
-
+```
 Devono essere attivi:
 - infra-neo4j-1
 - infra-mongo-1
