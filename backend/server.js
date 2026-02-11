@@ -16,7 +16,7 @@ app.use(cors());
 
 const driver = neo4j.driver(
   "bolt://localhost:7687",
-  neo4j.auth.basic("neo4j", "password123") // <-- cambia password se serve
+  neo4j.auth.basic("neo4j", "password123") 
 );
 
 const mongoClient = new MongoClient("mongodb://localhost:27017");
